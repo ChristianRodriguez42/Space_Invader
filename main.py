@@ -27,10 +27,10 @@ def player(x, y):
 
 
 # Enemy
-enemyImg = pygame.image.load('bad alien.png')
+enemyImg = pygame.image.load('squid.png')
 enemyX = random.randint(0, 750)
 enemyY = random.randint(50, 150)
-enemyX_change = 1.2
+enemyX_change = .2
 enemyY_change = 40
 
 
@@ -69,13 +69,13 @@ while running:
         # if keystroke is pressed check weather it is right or left
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                playerX_change = -2
+                playerX_change = -.5
                 # print("Left arrow is pressed")
             if event.key == pygame.K_RIGHT:
-                playerX_change = 2
+                playerX_change = .5
                 # print("Right arrow is pressed")
             if event.key == pygame.K_SPACE:
-                if bullet_state is "ready":
+                if bullet_state == "ready":
                     bulletX = playerX
                     fire_bullet(bulletX, bulletY)
 
@@ -94,17 +94,17 @@ while running:
 
     enemyX = enemyX + enemyX_change
     if enemyX <= 0:
-        enemyX_change = 1.2
+        enemyX_change = .2
         enemyY = enemyY + enemyY_change
     elif enemyX >= 736:
-        enemyX_change = -1.2
+        enemyX_change = -.2
         enemyY = enemyY + enemyY_change
 
     # Bullet movement
     if bulletY <= -20:
         bulletY = 480
         bullet_state = "ready"
-    if bullet_state is "fire":
+    if bullet_state == "fire":
         fire_bullet(bulletX, bulletY)
         bulletY = bulletY - bulletY_change
 
