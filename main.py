@@ -27,7 +27,7 @@ def player(x, y):
 
 
 # Enemy
-enemyImg = pygame.image.load('squid.png')
+enemyImg = pygame.image.load('squid2.png')
 enemyX = random.randint(0, 750)
 enemyY = random.randint(50, 150)
 enemyX_change = .2
